@@ -34,7 +34,7 @@ public class LogSpiralPanel extends JPanel
         Rectangle2D.Double rec = new Rectangle2D.Double(x , y, side, side);
         this.angle = ang;
 
-        if (this.ange > 360)
+        if (this.angle > 360)
         {
             this.angle += 90;
         }
