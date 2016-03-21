@@ -1,40 +1,33 @@
+import java.util.Scanner;
+import java.io.*;
 
-
-/**
- * Write a description of class WC here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class WC
+public class WC 
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int x;
-
-    /**
-     * Default constructor for objects of class WC
-     */
-    public WC()
+    public static void main(String[] args)
     {
-        // initialise instance variables
-        x = 0;
-    }
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter file name: ");
+        File f = new File(s.next());
+        try
+        {
+            Scanner file_scan = new Scanner(f);
+        }
+        catch (IOException i)
+        {
+            System.out.println("Le error has occured");
+        }	
 
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x+y;
+        int char_count = 0;
+        try
+        {
+            while (file_scan.hasNext())
+            {
+                char_count += 1;
+            }
+        }
+        finally
+        {
+            System.out.println(char_count);
+        }
     }
-
 }
