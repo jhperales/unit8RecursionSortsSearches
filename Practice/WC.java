@@ -1,33 +1,32 @@
-import java.util.Scanner;
 import java.io.*;
 
 public class WC 
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws FileNotFoundException
     {
+        int char_count = 0;
+        int words = 0;
+        int lines = 0;
         Scanner s = new Scanner(System.in);
         System.out.println("Enter file name: ");
-        File f = new File(s.next());
-        try
+        
+        File input = new File(s.next());
+        Scanner inLine = new Scanner(input);
+        Scanner inWord = new Scanner(input);
+        Scanner inChar = new Scanner(input);
+        
+        while (inLine.hasNextLine())
         {
-            Scanner file_scan = new Scanner(f);
+            lines++;
+            inLine.nextLine();
         }
-        catch (IOException i)
+        while (inWord.hasNext())
         {
-            System.out.println("Le error has occured");
-        }	
-
-        int char_count = 0;
-        try
-        {
-            while (file_scan.hasNext())
-            {
-                char_count += 1;
-            }
+            words++;
+            inWord.next();
         }
-        finally
-        {
-            System.out.println(char_count);
-        }
+        
+        System.out.println("Words: " + words);
+        System.out.println("Lines: " + lines);
     }
 }
