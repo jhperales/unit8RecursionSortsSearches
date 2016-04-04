@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class BabyNames
 {
    public static final double LIMIT = 50;
+   public static final double BOYS_TOTAL = 19229058;
+   public static final double GIRLS_TOTAL = 18450257;
 
    public static void main(String[] args) throws FileNotFoundException
    {  
@@ -14,14 +16,14 @@ public class BabyNames
       Scanner in = new Scanner(inputFile);
       
          
-      RecordReader boys = new RecordReader(LIMIT);
-      RecordReader girls = new RecordReader(LIMIT);
+      RecordReader boys = new RecordReader(LIMIT, BOYS_TOTAL);
+      RecordReader girls = new RecordReader(LIMIT, GIRLS_TOTAL);
       
-      while (boys.hasMore() || girls.hasMore())
+      while ()
       {
          int rank = in.nextInt();
          System.out.print(rank + " ");
-         boys.process(in);
+         boys.processBo(in);
          girls.process(in);
          System.out.println();
       }
